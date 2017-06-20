@@ -62,28 +62,28 @@ function startResolution() {
             found = true;
         }
     }
-    console.log("i est egal à " + i);
     var stop = false;
     for (var b = 0; b < blueBoxesFromO.length && !stop; b++) {
-        var x = blueBoxesFromO[b][0];
-        var y = blueBoxesFromO[b][1];
-        for (var c = x - 1; c > 0 && c < x && !stop; c--) { // Boucle pour verifier les X
+        var y = blueBoxesFromO[b][0];
+        var x = blueBoxesFromO[b][1];
+        for (var c = x - 1; c > 0 && c < x && !stop; c--) { // Boucle pour verifier les Y
             if (mapArray[c][y]) {
-                console.log("On s'arrete là");
+                console.log("On s'arrete la et on est en y");
                 stop = true;
             }
         }
         for (var c = y - 1; c > 0 && c < y && !stop; c--) { // Boucle pour verifier les X
             if (mapArray[x][c]) {
-                console.log("On s'arrete là");
+                console.log("On s'arrete la et on est en x");
                 stop = true;
             }
         }
         if (stop) {
             var yFinal = y - 1;
             var xFinal = x - 1;
+            var aire = x * y;
             console.log("Le carre maximum est a son cote inferieur droit en (" + xFinal + ";" + yFinal + ")");
-            console.log("Il a pour aire " + xFinal * yFinal + "carres.");
+            console.log("Il a pour aire " + aire + "carres.");
             canvctx.fillStyle = "green";
             canvctx.fillRect(xFinal * 10 + 30, yFinal * 10 + 30, 10, 10);
         }
